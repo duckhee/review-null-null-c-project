@@ -7,3 +7,4 @@ add_executable(review_null_null_cproject main.c)
 
 # sub directory add
 add_subdirectory(chapter01)
+add_subdirectory(chapter02)
