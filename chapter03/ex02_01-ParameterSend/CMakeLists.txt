@@ -9,7 +9,7 @@ add_compile_options("-Wl,-stack_size,1048576")
 add_executable(ex0201ParameterSender parameterSender.c)
 
 set_target_properties(ex0201ParameterSender PROPERTIES C_STANDARD 99 C_STANDARD_REQURIED ON)
-# stack size 변경
+# stack size 변경 -> linux 계열에서는 동작이 안된다.
 #target_link_options(ex0201ParameterSender PRIVATE "-Wl,--stack,10000000")
 #target_compile_options(ex0201ParameterSender PRIVATE "-Wl,--stack,1048576")
 

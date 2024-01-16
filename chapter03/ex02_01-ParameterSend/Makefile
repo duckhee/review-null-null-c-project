@@ -12,10 +12,11 @@ C_EXTRA =
 
 C_INC = $(patsubst %,-I%, $(C_EXTRA))
 
-# stack size 변경
+# stack size 변경 -> linux 계열에서는 동작이 안된다.
 # -Wl, --heap, <heap size>, --stack, <stack size>
 
 C_FLAGS = -W -Wall -Wextra -v
+#C_FLAGS += -W -Wall,-z,--stack,1048576 -v
 LDFLAGS = -Wl,--stack,1048576
 
 all: clean createdirs build
@@ -23,8 +24,11 @@ all: clean createdirs build
 createdirs:
 	$(shell mkdir ${BUILD_DIR})
 
+#build: $(COBJS)
+#	$(CC) $(C_FLAGS) -o $(BUILD_DIR)/$(TARGET) $^ $(LDFLAGS)
+
 build: $(COBJS)
-	$(CC) $(C_FLAGS) -o $(BUILD_DIR)/$(TARGET) $^ $(LDFLAGS)
+	$(CC) -o $(BUILD_DIR)/$(TARGET) $^
 
 $(COBJS): $(BUILD_DIR)/%.o : %.c
 	$(CC) $(C_FLAGS) -o $@ -c $<
