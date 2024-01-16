@@ -15,7 +15,8 @@ C_INC = $(patsubst %,-I%, $(C_EXTRA))
 # stack size 변경
 # -Wl, --heap, <heap size>, --stack, <stack size>
 
-C_FLAGS = -W -Wall,-z,--stack,1048576 -v
+C_FLAGS = -W -Wall -Wextra -v
+LDFLAGS = -Wl,--stack,1048576
 
 all: clean createdirs build
 
@@ -23,7 +24,7 @@ createdirs:
 	$(shell mkdir ${BUILD_DIR})
 
 build: $(COBJS)
-	$(CC) $(C_FLAGS) -o $(BUILD_DIR)/$(TARGET) $^
+	$(CC) $(C_FLAGS) -o $(BUILD_DIR)/$(TARGET) $^ $(LDFLAGS)
 
 $(COBJS): $(BUILD_DIR)/%.o : %.c
 	$(CC) $(C_FLAGS) -o $@ -c $<
