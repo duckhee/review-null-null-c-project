@@ -12,6 +12,8 @@ int add(int param1, int param2) {
 }
 
 int main() {
+    // stack 위치 잡기 위한 변수 선언
+    int a = 1;
     add(3, 4);
     return 0;
 }
