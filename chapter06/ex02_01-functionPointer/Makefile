@@ -4,7 +4,7 @@ SRCS = functionPointer.c
 
 BUILD_DIR = build
 
-TARGET = ex0102FunctionPointer
+TARGET = ex0201FunctionPointer
 
 C_EXTRA =
 
