@@ -11,6 +11,8 @@ else ()
     message("ex01-01 thread")
 
     add_executable(ex0101Thread linuxThreadExample.c)
+
+    target_link_libraries(ex0101Thread PRIVATE pthread)
 endif ()
 
 set_target_properties(ex0101Thread PROPERTIES C_STANDARD 99 C_STANDARD_REQUIRED ON)
