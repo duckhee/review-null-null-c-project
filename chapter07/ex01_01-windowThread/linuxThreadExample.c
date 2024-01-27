@@ -3,14 +3,14 @@
 
 int g_nData;
 
-void *thread_main(void *pParam) {
+void thread_main(void *pParam) {
     g_nData = 0;
     puts("begin - new Thread");
     for (int i = 0; i < 100; ++i) {
         g_nData += 1;
     }
     puts("end - new Thread");
-    return NULL;
+
 }
 
 int main() {
@@ -19,7 +19,7 @@ int main() {
     int status;
     puts("begin - main");
     // linux 계열에서 thread 생성 하는 함수
-    int threadId = pthread_create(&worker, NULL, thread_main, NULL);
+    int threadId = pthread_create(&worker, NULL, (void *(*)(void *)) thread_main, NULL);
     printf("thread ID : %d\r\n", threadId);
 
     for (int i = 0; i < 200; ++i) {
