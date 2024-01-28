@@ -17,7 +17,7 @@ void *thread_set(void *pParam) {
             strcpy(g_pszMsg, "Hello");
         }
 
-//        sleep(1);
+//        usleep(1);
         /** 동기화 임계 구간에 대한 unlock */
         pthread_mutex_unlock(&mutex);
     }
@@ -31,7 +31,7 @@ void *thread_reset(void *pParam) {
             free(g_pszMsg);
             g_pszMsg = 0;
         }
-//        sleep(1);
+//        usleep(1);
         /** 동기화 임계 구간에 대한 unlock */
         pthread_mutex_unlock(&mutex);
     }
