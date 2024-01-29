@@ -47,7 +47,7 @@ createdirs:
 
 
 build: $(COBJS)
-	$(AR) $(AR_FLAGS) $(BUILD_DIR)/libaAdd.a $^
+	$(AR) $(AR_FLAGS) $(BUILD_DIR)/libAdd.a $^
 
 
 $(COBJS): $(BUILD_DIR)/%.o : %.c
