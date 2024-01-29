@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "static_add.h"
 
-#pragma comment(lib, "./lib/staticLibSample/libaddLib.a")
+#pragma comment(lib, "../lib/staticLibSample/buildDIr/libAdd.a")
 int add_in_lib(int, int);
 
 int add(int a, int b) {

@@ -27,7 +27,8 @@ C_EXTRA += $(C_MODULE)
 C_EXTRA += ./lib/staticLibSample/Inc
 
 LIBS :=
-LIBS += -L ./lib/staticLibSample/buildDir -llibAdd
+# 라이브러리 파일의 시작은 lib으로 시작해야한다.
+LIBS += -lAdd -L ./lib/staticLibSample/buildDir
 
 C_INC = $(patsubst %,-I%, $(C_EXTRA)) $(LIBS)
 

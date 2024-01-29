@@ -29,6 +29,9 @@ BUILD_DIR = buildDir
 
 TARGET = addLib
 
+# 라이브러리의 이름의 시작은 lib으로 시작해야한다.
+LIBRARY_NAME = libAdd.a
+
 C_MODULE :=
 
 C_EXTRA :=
@@ -47,7 +50,7 @@ createdirs:
 
 
 build: $(COBJS)
-	$(AR) $(AR_FLAGS) $(BUILD_DIR)/libAdd.a $^
+	$(AR) $(AR_FLAGS) $(BUILD_DIR)/$(LIBRARY_NAME) $^
 
 
 $(COBJS): $(BUILD_DIR)/%.o : %.c
