@@ -22,7 +22,6 @@ void main() {
 //	exit(1);
 
     printf("이름을 입력하세요: ");
-    //aaaaaaaaaaaabbbb4pA -> return 주소의 값을 침범해서 해당 shell code 의 위치로 이동시킨다.
-    gets(szBuffer);
+     gets(szBuffer);
     printf("당신의 이름은 %s입니다..\n", szBuffer);
 }
